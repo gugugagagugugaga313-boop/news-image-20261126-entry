@@ -7,18 +7,20 @@ and a hand-rolled PNG encoder (zlib + struct). No network, no random
 numbers, no clock: two runs write identical bytes.
 
 Stories (all reported on 26 November 2026, cross-checked against the
-morning wires and digests dated that day):
-  1. Gulf: Houthis claim a strike on Saudi Arabia's Ras Tanura refinery;
-     tankers hit by mines in the Strait of Hormuz; oil prices jump.
-  2. Gaza: Israel kills Hamas interior-security chief Mohammad Abuelouf;
-     the ceasefire is under strain.
-  3. Ukraine: Ukrainian strikes set two Russian oil refineries ablaze
-     overnight; Putin vows retaliation.
-  4. Space: BepiColombo enters orbit around Mercury after an 8-year trip.
+full day's wires and digests dated that day):
+  1. Gulf: Houthis hit the Jazan refinery (one worker killed) and claim
+     Ras Tanura; tankers hit by mines in the Strait of Hormuz; Brent
+     near $95.
+  2. Gaza: Israel kills Hamas interior-security chief Mohammad Abuelouf
+     and his family; 9 more die in Deir al-Balah; ceasefire strained.
+  3. Ukraine: Ukrainian drones set the Slavyansk refinery ablaze and
+     damage 5 jets at Savasleyka airbase; Russia hits a Kyiv mall.
+  4. Space: ESA confirms BepiColombo safe in Mercury orbit after an
+     8-year trip, despite a shortened braking burn.
   5. India: 18th anniversary of the 26/11 Mumbai attacks, on
-     Constitution Day. Plus: US tariff plan, Pakistan's first astronaut
-     to China's space station, Gukesh's Game 2 draw in the chess title
-     match.
+     Constitution Day. Plus: US tariff plan, Spain snap vote, ECB picks
+     de Cos, NATO radar over Poland, N. Korea missile-supply halt,
+     Bogor mine flood.
 """
 
 import os
@@ -342,20 +344,20 @@ def draw_page(px):
     px0, py0 = 24, 194
     pw, ph, gap = 480, 288, 16
     panel(px, px0, py0, pw, ph, "GULF  -  OIL UNDER FIRE", RED, "gulf",
-          "HOUTHIS CLAIM SAUDI REFINERY HIT",
-          "RAS TANURA ATTACKED, FIRES SEEN FROM SPACE. TANKERS HIT BY MINES IN HORMUZ. OIL UP.")
+          "HOUTHIS HIT JAZAN REFINERY",
+          "JAZAN REFINERY HIT, ONE WORKER KILLED. RAS TANURA ALSO CLAIMED. MINES HIT TANKERS; BRENT NEAR $95.")
     panel(px, px0 + pw + gap, py0, pw, ph, "GAZA  -  CEASEFIRE STRAINED",
           TEAL, "gaza",
           "ISRAEL KILLS HAMAS SECURITY CHIEF",
-          "COL. MOHAMMAD ABUELOUF KILLED IN GAZA. HIS WIFE AND TWO CHILDREN ALSO KILLED.")
+          "COL. MOHAMMAD ABUELOUF KILLED IN GAZA. HIS WIFE AND TWO CHILDREN ALSO KILLED. 9 MORE DIE IN DEIR AL-BALAH.")
     panel(px, px0, py0 + ph + gap, pw, ph, "UKRAINE  -  WAR IN ITS 5TH YEAR",
           NAVY2, "ukraine",
-          "UKRAINE HITS TWO RUSSIAN REFINERIES",
-          "REFINERIES ABLAZE AFTER OVERNIGHT STRIKES. PUTIN VOWS RETALIATION.")
+          "UKRAINE HITS REFINERY AND AIRBASE",
+          "SLAVYANSK REFINERY ABLAZE OVERNIGHT. 5 JETS DAMAGED AT SAVASLEYKA AIRBASE. KYIV MALL HIT, 7 WOUNDED.")
     panel(px, px0 + pw + gap, py0 + ph + gap, pw, ph,
           "SPACE  -  AFTER 8 YEARS IN FLIGHT", SKY, "mercury",
           "BEPICOLOMBO REACHES MERCURY",
-          "THE EUROPEAN-JAPANESE PROBE ENTERS ORBIT AROUND THE SMALLEST PLANET.")
+          "ESA CONFIRMS PROBE SAFE IN MERCURY ORBIT DESPITE A BURN GLITCH. SECOND MISSION EVER TO CIRCLE THE PLANET.")
 
     # Bottom band: India + also-today.
     bx, by, bw, bh = 24, 798, 976, 202
@@ -375,9 +377,11 @@ def draw_page(px):
     draw_text(px, tx, by + 112,
               "ANNIVERSARY OF THE MUMBAI ATTACKS.", GREY, 2)
     fill_rect(px, bx + 14, by + 132, bw - 28, 2, LIGHT)
-    also = ("US PLANS NEW TARIFFS ON CHINA, EU AND BRAZIL  -  "
-            "PAKISTAN'S FIRST ASTRONAUT JOINS CHINA'S SPACE STATION  -  "
-            "GUKESH DRAWS GAME 2 OF THE CHESS FINAL")
+    also = ("US TARIFFS ON 14 ECONOMIES  -  "
+            "SPAIN VOTES SUNDAY  -  ECB PICKS DE COS  -  "
+            "NATO RADAR OVER POLAND  -  "
+            "N. KOREA HALTS MISSILE SUPPLY  -  "
+            "BOGOR FLOOD KILLS 13")
     draw_text(px, bx + 14, by + 144, "ALSO TODAY:", RED, 2)
     iy = by + 162
     for line in wrap_text(also, 2, bw - 28)[:2]:
